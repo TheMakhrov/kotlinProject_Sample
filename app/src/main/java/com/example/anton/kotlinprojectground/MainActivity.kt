@@ -7,11 +7,11 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
   @Inject
-  val okHttpClient: OkHttpClient? = null
+  lateinit var okHttpClient: OkHttpClient
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-    print("WWW" + okHttpClient.toString())
+    KotlinProjectApplication.netComponent.inject(this)
   }
 }
